@@ -3,4 +3,19 @@
 @{
 }
 
-<a class="nav-link text-dark" asp-area="" asp-page="Checkout/Confirmation">Order Confirmed</a>
+<h1>Your Order</h1>
+@{
+    var imagePath = "~/images/" + (@Model.ImageTitle + ".png");
+}
+
+
+<div class="align-content-center">
+    <div class="col-3 mx-auto mb-5">
+        <img src="~/images/course1.jpg" class="w-100" asp-append-version="true" />
+        <p>Order for the @Model.ItemName will be ready in 20 minutes</p>
+        <p> Total price is @Model.Price :</p>
+        <br />
+        <a class="btn alert-primary mt-1 m-auto" asp-area="" asp-page="Confirmation">Confirm Order</a>
+    </div>
+
+</div>

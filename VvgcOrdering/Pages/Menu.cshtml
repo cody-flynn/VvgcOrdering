@@ -12,25 +12,22 @@
         <div class="row">
             <div class="col-12 mb-5 mt-5">
                 <div class="w-100 row makeYourOwnDiv">
-                    <div class="col-4">
-                        <img src="~/images/course1.jpg" class="w-100" />
-                    </div>
-                    <div class="col-8 align-items-center">
-                        <div class="align-middle makeYourOwnText">
-                            <h3 style="text-align:left;">Create Your Own Item</h3>
-                            <p style="text-align: left;"> Build Your Own Item</p>
-                            <a class="btn btn-primary" style="float: left" asp-area="" asp-page="Form/Custom">Try Now</a>
-                        </div>
-                    </div>
+                  
+                    
                 </div>
             </div>
-            <div class="col-4 mb-5">
-                <img src="" class="w-100" asp-append-version="true" />
-                <a class="btn btn-primary mt-1" asp-area="" asp-page="Checkout/Confirmation">Add to Cart</a>
-                <br />
-            </div>
+            @foreach (var item in Model.MenuOrders)
+            {
+                <div class="col-4 mb-5">
+                    <h3 style="text-align:left;">@item.ItemName $@item.BasePrice</h3>
+                    <p style="text-align: left;">@item.Description</p>
+                    <a class="btn btn-primary mt-1" asp-area="" asp-page="Checkout/Checkout"
+                    asp-route-ItemName="@item.ItemName"
+                    asp-route-Price="@item.BasePrice">Add to Cart</a>
+
+                    <br />
+                </div>
+            }
         </div>
-
     </div>
-
 </div>
